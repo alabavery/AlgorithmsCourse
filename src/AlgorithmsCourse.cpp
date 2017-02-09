@@ -9,17 +9,22 @@
 
 // http://www.icce.rug.nl/documents/cplusplus/cplusplus09.html
 // http://stackoverflow.com/questions/15604411/memory-allocation-deallocation
+// #include "UnionFind/FirstImplementation.h"
+#include "UnionFind/QuickFind.h"
+#include "UnionFind/QuickUnion.h"
+
 #include <iostream>
-#include <fstream>
-#include <vector>
-#include "UnionFind.h"
 using namespace std;
+
+
 
 
 int main() {
 
-	UnionFind uf = UnionFind("stdinput.txt");
-	uf.print_components();
+	//QuickUnion uf = QuickUnion();
+	QuickFind uf = QuickFind();
 
+	uf.init("src/UnionFind/stdinput.txt");
+	cout << uf.test_connection(0, 2);
 	return 0;
 }

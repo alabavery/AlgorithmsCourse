@@ -1,19 +1,27 @@
 /*
- * UnionFind.cpp
+ * FirstImplementation.cpp
  *
  *  Created on: Jan 24, 2017
  *      Author: alavery
+ *
+ *
+ *  FirstImplementation starts with int * pointing to arrays just containing i for
+ *  each i in 0 < i < N.  Union iterates through each i's array and combines, then
+ *  replaces the pointers for all i's that were a part of either component involved
+ *  in the union with a pointer to the new array.
+ *
+ *  Find just sees if the pointers in p and q spots point to the same address.
  */
 #include <vector>
 #include <stdlib.h>
-#include "UnionFind.h"
+#include "FirstImplementation.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
 
 
 
-UnionFind::UnionFind(string file_path) {
+FirstImplementation::FirstImplementation(string file_path) {
 	ifstream std_input_stream(file_path);
 	string sz_a_line;
 
@@ -27,19 +35,21 @@ UnionFind::UnionFind(string file_path) {
 			int second_node = stoi(sz_a_line.substr(2));
 			this->unionize(first_node, second_node);
 		}
+		std_input_stream.close();
 	}
-	std_input_stream.close();
-
+	else {
+		cout << "Couldn't open" << endl;
+	}
 }
 
-UnionFind::UnionFind(int N) {
+FirstImplementation::FirstImplementation(int N) {
 	this->N = N;
 	this->set_initial_node_pointers();
 }
 
 
 //
-//UnionFind::~UnionFind()
+//FirstImplementation::~FirstImplementation()
 //{
 ////	for (int i = 0; i < this->component_ptrs.size(); ++i)
 ////	{
@@ -49,7 +59,7 @@ UnionFind::UnionFind(int N) {
 //}
 
 
-void UnionFind::set_initial_node_pointers() {
+void FirstImplementation::set_initial_node_pointers() {
 
 	for (int i = 0; i < N; i++) {
 		int* this_component = new int[2];
@@ -60,7 +70,7 @@ void UnionFind::set_initial_node_pointers() {
 }
 
 
-void UnionFind::unionize(int p, int q) {
+void FirstImplementation::unionize(int p, int q) {
 
 	if (this->component_ptrs[p] == this->component_ptrs[q]) {
 		return;
@@ -86,14 +96,14 @@ void UnionFind::unionize(int p, int q) {
 }
 
 
-bool UnionFind::test_connection(int p, int q) {
+bool FirstImplementation::test_connection(int p, int q) {
 	if (this->component_ptrs[p] == this->component_ptrs[q]) return true;
 	else return false;
 }
 
 
 
-void UnionFind::print_components() {
+void FirstImplementation::print_components() {
 	cout << "______ Contents of component_ptrs, by index: _______" << endl;
 	for (int i = 0; i < this->N; i++) {
 		cout << i << " index contains an int* pointing to " << this->component_ptrs[i] << ", which is the start of an array of " << this->component_ptrs[i][0] << " ints, namely: " << flush;
