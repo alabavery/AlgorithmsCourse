@@ -26,6 +26,7 @@ private:
 	virtual void initialize_id();
 	void unionize(int p, int q);
 public:
+	void init(string stdinput_file_path);
 	vector<int*> component_ptrs;
 //	~FirstImplementation();
 	bool test_connection(int p, int q);
