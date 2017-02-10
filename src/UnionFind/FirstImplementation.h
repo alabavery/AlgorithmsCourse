@@ -13,25 +13,21 @@
  *
  */
 
-
-
-#include <vector>
 #ifndef FirstImplementation_H_
 #define FirstImplementation_H_
+#include <vector>
+#include "IUnionFind.h"
 
 using namespace std;
 
 
-class FirstImplementation {
+class FirstImplementation : public IUnionFind {
 private:
-	int N;
-	void set_initial_node_pointers();
+	virtual void initialize_id();
+	void unionize(int p, int q);
 public:
 	vector<int*> component_ptrs;
-	FirstImplementation(string file_path);
-	FirstImplementation(int N);
 //	~FirstImplementation();
-	void unionize(int p, int q);
 	bool test_connection(int p, int q);
 	void print_components();
 };

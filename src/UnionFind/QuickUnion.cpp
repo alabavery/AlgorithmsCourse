@@ -9,6 +9,10 @@
 #include "QuickUnion.h"
 using namespace std;
 
+void QuickUnion::initialize_id() {
+	this->default_initialize_id();
+}
+
 
 void QuickUnion::unionize(int p, int q) {
 	int p_root = this->get_root(p);

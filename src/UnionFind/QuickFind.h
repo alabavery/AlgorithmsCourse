@@ -18,6 +18,7 @@ using namespace std;
 class QuickFind : public IUnionFind {
 private:
 	virtual void unionize(int p, int q);
+	virtual void initialize_id();
 public:
 	virtual bool test_connection(int p, int q);
 };

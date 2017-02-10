@@ -21,46 +21,8 @@ using namespace std;
 
 
 
-FirstImplementation::FirstImplementation(string file_path) {
-	ifstream std_input_stream(file_path);
-	string sz_a_line;
-
-	if (std_input_stream.is_open()) {
-		getline(std_input_stream, sz_a_line);
-		this->N = stoi(sz_a_line);
-		this->set_initial_node_pointers();
-
-		while ( getline (std_input_stream, sz_a_line) ) {
-			int first_node = stoi(sz_a_line.substr(0,2));
-			int second_node = stoi(sz_a_line.substr(2));
-			this->unionize(first_node, second_node);
-		}
-		std_input_stream.close();
-	}
-	else {
-		cout << "Couldn't open" << endl;
-	}
-}
-
-FirstImplementation::FirstImplementation(int N) {
-	this->N = N;
-	this->set_initial_node_pointers();
-}
-
-
-//
-//FirstImplementation::~FirstImplementation()
-//{
-////	for (int i = 0; i < this->component_ptrs.size(); ++i)
-////	{
-////		if (this->component_ptrs[i])
-////			delete [] component_ptrs[i];
-////	}
-//}
-
-
-void FirstImplementation::set_initial_node_pointers() {
-
+void FirstImplementation::initialize_id()
+{
 	for (int i = 0; i < N; i++) {
 		int* this_component = new int[2];
 		this_component[0] = 1;
@@ -100,7 +62,6 @@ bool FirstImplementation::test_connection(int p, int q) {
 	if (this->component_ptrs[p] == this->component_ptrs[q]) return true;
 	else return false;
 }
-
 
 
 void FirstImplementation::print_components() {

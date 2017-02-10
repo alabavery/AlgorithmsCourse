@@ -26,7 +26,8 @@ void IUnionFind::assign_N_from_stdinput(string file_path) {
 }
 
 
-void IUnionFind::initialize_id() {
+void IUnionFind::default_initialize_id() {
+	cout << "Called";
 	this->id = new int[this->N];
 	for (int i = 0; i < this->N; i++) {
 		this->id[i] = i;

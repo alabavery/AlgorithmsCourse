@@ -16,6 +16,10 @@ void QuickFind::unionize(int p, int q) {
 }
 
 
+void QuickFind::initialize_id() {
+	this->default_initialize_id();
+}
+
 bool QuickFind::test_connection(int p, int q) { // not working all the sudden.. false negatives
 	return this->id[p] == this->id[q];
 }

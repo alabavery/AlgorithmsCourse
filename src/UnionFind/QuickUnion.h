@@ -13,9 +13,10 @@
 
 class QuickUnion : public IUnionFind {
 private:
-	virtual void unionize(int p, int q);
+	void unionize(int p, int q);
+	void initialize_id();
 public:
-	virtual bool test_connection(int p, int q);
+	bool test_connection(int p, int q);
 	int get_root(int leaf);
 };
 
