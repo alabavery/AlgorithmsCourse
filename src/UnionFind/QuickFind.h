@@ -20,6 +20,7 @@ private:
 	virtual void unionize(int p, int q);
 	virtual void initialize_id();
 public:
+	void init(string stdinput_file_path);
 	virtual bool test_connection(int p, int q);
 };
 

@@ -9,6 +9,11 @@
 #include "QuickUnion.h"
 using namespace std;
 
+
+void QuickUnion::init(string stdinput_file_path) {
+	this->default_init(stdinput_file_path);
+}
+
 void QuickUnion::initialize_id() {
 	this->default_initialize_id();
 }

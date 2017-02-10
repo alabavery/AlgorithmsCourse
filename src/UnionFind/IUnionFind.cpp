@@ -4,7 +4,7 @@
 using namespace std;
 
 
-void IUnionFind::init(string stdinput_file_path) {
+void IUnionFind::default_init(string stdinput_file_path) {
 	this->assign_N_from_stdinput(stdinput_file_path);
 	this->initialize_id();
 	this->iterate_unions_in_stdinput(stdinput_file_path);

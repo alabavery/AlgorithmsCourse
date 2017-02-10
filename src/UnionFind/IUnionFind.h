@@ -15,11 +15,12 @@ using namespace std;
 
 class IUnionFind {
 public:
-	void init(string stdinput_file_path);
+	virtual void init(string stdinput_file_path) = 0;
 protected:
-	int * id;
+	void default_init(string stdinput_file_path);
 	virtual void initialize_id() = 0;
 	void default_initialize_id();
+	int * id;
 private:
 	virtual void unionize(int p, int q) = 0;
 	void assign_N_from_stdinput(string file_path);

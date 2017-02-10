@@ -6,6 +6,10 @@
 
 using namespace std;
 
+void QuickFind::init(string stdinput_file_path) {
+	this->default_init(stdinput_file_path);
+}
+
 
 void QuickFind::unionize(int p, int q) {
 	for (int i = 0; i < this->N; i++) {

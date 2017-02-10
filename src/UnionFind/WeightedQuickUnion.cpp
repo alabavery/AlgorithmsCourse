@@ -5,6 +5,12 @@
 using namespace std;
 
 
+void WeightedQuickUnion::init(string stdinput_file_path) {
+	this->default_init(stdinput_file_path);
+	this->tree_sizes = new int[this->N];
+}
+
+
 void WeightedQuickUnion::unionize(int p, int q)
 {
 	if (this->get_tree_size(p) > this->get_tree_size(q)) {

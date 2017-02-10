@@ -16,6 +16,7 @@ protected:
 	void unionize(int p, int q);
 	void initialize_id();
 public:
+	void init(string stdinput_file_path);
 	bool test_connection(int p, int q);
 	int get_root(int leaf);
 };
