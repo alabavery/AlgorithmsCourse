@@ -26,9 +26,8 @@ bool QuickUnion::test_connection(int p, int q) {
 
 
 int QuickUnion::get_root(int leaf) {
-	int temp = leaf;
-	while (this->id[temp] != temp) {
-		temp = this->id[temp];
+	while (this->id[leaf] != leaf) {
+		leaf = this->id[leaf];
 	}
-	return temp;
+	return leaf;
 }
