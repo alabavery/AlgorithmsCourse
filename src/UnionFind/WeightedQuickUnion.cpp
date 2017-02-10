@@ -16,23 +16,19 @@ void WeightedQuickUnion::init(string stdinput_file_path) {
 
 void WeightedQuickUnion::unionize(int p, int q)
 {
-	int p_tree_size = this->get_tree_size(p);
-	int q_tree_size = this->get_tree_size(q);
-	if (p_tree_size > q_tree_size) {
-		int temp_p = p;
-		p = q;
-		q = temp_p;
+	int p_root = this->get_root(p);
+	int q_root = this->get_root(q);
+	if (p_root == q_root) {
+		return;
 	}
-	int p_root = this->get_root(p);
-	this->id[p_root] = this->get_root(q);
-	this->tree_sizes[this->get_root(q)] = p_tree_size + q_tree_size;
-}
-
-
-int WeightedQuickUnion::get_tree_size(int p)
-{
-	int p_root = this->get_root(p);
-	int tree_size = this->tree_sizes[p_root]; // error coming from this line
-	return tree_size;
+	int p_root_tree_size = this->tree_sizes[p_root];
+	int q_root_tree_size = this->tree_sizes[q_root];
+	if (p_root_tree_size > q_root_tree_size) {
+		this->id[q_root] = p_root;
+		this->tree_sizes[p_root] += q_root_tree_size;
+	} else {
+		this->id[p_root] = q_root;
+		this->tree_sizes[q_root] += p_root_tree_size;
+	}
 }
 
