@@ -42,9 +42,12 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.macosx.exe.debug.1160355056.1727044442" name="FirstImplementation.cpp" rcbsApplicability="disable" resourcePath="src/UnionFind/FirstImplementation.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cpp.compiler.macosx.exe.debug.2085352970.574065667">
+						<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.macosx.exe.debug.2085352970.574065667" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.macosx.exe.debug.2085352970"/>
+					</fileInfo>
 					<fileInfo id="cdt.managedbuild.config.gnu.macosx.exe.debug.1160355056.573718787" name="FirstImplementation.h" rcbsApplicability="disable" resourcePath="src/UnionFind/FirstImplementation.h" toolsToInvoke=""/>
 					<sourceEntries>
-						<entry excluding="UnionFind/FirstImplementation.h|UnionFind/FirstImplementation.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

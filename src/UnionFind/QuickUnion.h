@@ -12,7 +12,7 @@
 
 
 class QuickUnion : public IUnionFind {
-private:
+protected:
 	void unionize(int p, int q);
 	void initialize_id();
 public:
