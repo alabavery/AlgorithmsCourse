@@ -16,7 +16,7 @@ void QuickUnion::initialize_id() {
 
 void QuickUnion::unionize(int p, int q) {
 	int p_root = this->get_root(p);
-	id[p_root] = q;
+	id[p_root] = this->get_root(q);
 }
 
 
