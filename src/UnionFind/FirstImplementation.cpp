@@ -20,6 +20,10 @@
 using namespace std;
 
 
+void FirstImplementation::init(string stdinput_file_path) {
+	this->default_init(stdinput_file_path);
+}
+
 
 void FirstImplementation::initialize_id()
 {
