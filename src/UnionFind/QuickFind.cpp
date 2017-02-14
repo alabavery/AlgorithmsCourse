@@ -11,6 +11,11 @@ void QuickFind::init(string stdinput_file_path) {
 }
 
 
+void QuickFind::init(int N) {
+	this->default_init(N);
+}
+
+
 void QuickFind::unionize(int p, int q) {
 	for (int i = 0; i < this->N; i++) {
 		if (this->id[i] == p) {

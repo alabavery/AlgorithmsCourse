@@ -25,6 +25,11 @@ void FirstImplementation::init(string stdinput_file_path) {
 }
 
 
+void FirstImplementation::init(int N) {
+	this->default_init(N);
+}
+
+
 void FirstImplementation::initialize_id()
 {
 	for (int i = 0; i < N; i++) {

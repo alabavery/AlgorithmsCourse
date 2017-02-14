@@ -14,6 +14,14 @@ void WeightedQuickUnion::init(string stdinput_file_path) {
 }
 
 
+void WeightedQuickUnion::init(int N) {
+	this->N = N;
+	this->tree_sizes = new int[this->N];
+	fill_n(this->tree_sizes, this->N, 1);
+	this->initialize_id();
+}
+
+
 void WeightedQuickUnion::unionize(int p, int q)
 {
 	int p_root = this->get_root(p);

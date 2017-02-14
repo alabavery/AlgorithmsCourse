@@ -21,10 +21,10 @@ protected:
 	int N;
 	virtual void initialize_id() = 0;
 	void default_init(string stdinput_file_path);
+	void default_init(int N);
 	void default_initialize_id();
 	void assign_N_from_stdinput(string file_path);
 	void iterate_unions_in_stdinput(string file_path);
-private:
 	virtual void unionize(int p, int q) = 0;
 public:
 	virtual ~IUnionFind() {}

@@ -17,10 +17,11 @@ using namespace std;
 
 class QuickFind : public IUnionFind {
 private:
-	virtual void unionize(int p, int q);
 	virtual void initialize_id();
 public:
 	void init(string stdinput_file_path);
+	void init(int N);
+	virtual void unionize(int p, int q);
 	virtual bool test_connection(int p, int q);
 };
 

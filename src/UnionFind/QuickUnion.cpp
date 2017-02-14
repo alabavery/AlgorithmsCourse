@@ -14,6 +14,12 @@ void QuickUnion::init(string stdinput_file_path) {
 	this->default_init(stdinput_file_path);
 }
 
+
+void QuickUnion::init(int N) {
+	this->default_init(N);
+}
+
+
 void QuickUnion::initialize_id() {
 	this->default_initialize_id();
 }
@@ -32,6 +38,7 @@ bool QuickUnion::test_connection(int p, int q) {
 
 int QuickUnion::get_root(int leaf) {
 	while (this->id[leaf] != leaf) {
+		this->id[leaf] = this->id[this->id[leaf]]; // shorten path length while going down path
 		leaf = this->id[leaf];
 	}
 	return leaf;

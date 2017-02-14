@@ -11,6 +11,12 @@ void IUnionFind::default_init(string stdinput_file_path) {
 }
 
 
+void IUnionFind::default_init(int N) {
+	this->N = N;
+	this->initialize_id();
+}
+
+
 void IUnionFind::assign_N_from_stdinput(string file_path) {
 	string sz_a_line;
 	ifstream std_input_stream(file_path);

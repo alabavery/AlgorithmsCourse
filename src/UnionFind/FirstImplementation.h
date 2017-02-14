@@ -24,9 +24,10 @@ using namespace std;
 class FirstImplementation : public IUnionFind {
 private:
 	virtual void initialize_id();
-	void unionize(int p, int q);
 public:
 	void init(string stdinput_file_path);
+	void init(int N);
+	void unionize(int p, int q);
 	vector<int*> component_ptrs;
 //	~FirstImplementation();
 	bool test_connection(int p, int q);
