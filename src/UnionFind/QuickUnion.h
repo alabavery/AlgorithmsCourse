@@ -17,7 +17,7 @@ protected:
 public:
 	void unionize(int p, int q);
 	void init(string stdinput_file_path);
-	void init(int N);
+	void init(int N, string displaytreetxtpath);
 	bool test_connection(int p, int q);
 	int get_root(int leaf);
 };

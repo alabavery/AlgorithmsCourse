@@ -4,20 +4,24 @@
 using namespace std;
 
 
-void IUnionFind::default_init(string stdinput_file_path) {
+void IUnionFind::default_init(string stdinput_file_path)
+{
 	this->assign_N_from_stdinput(stdinput_file_path);
 	this->initialize_id();
 	this->iterate_unions_in_stdinput(stdinput_file_path);
 }
 
 
-void IUnionFind::default_init(int N) {
+void IUnionFind::default_init(int N, string displaytreetxtpath)
+{
 	this->N = N;
 	this->initialize_id();
+	this->displaytreetxtpath = displaytreetxtpath;
 }
 
 
-void IUnionFind::assign_N_from_stdinput(string file_path) {
+void IUnionFind::assign_N_from_stdinput(string file_path)
+{
 	string sz_a_line;
 	ifstream std_input_stream(file_path);
 
@@ -32,7 +36,8 @@ void IUnionFind::assign_N_from_stdinput(string file_path) {
 }
 
 
-void IUnionFind::default_initialize_id() {
+void IUnionFind::default_initialize_id()
+{
 
 	this->id = new int[this->N];
 	for (int i = 0; i < this->N; i++) {
@@ -41,7 +46,8 @@ void IUnionFind::default_initialize_id() {
 }
 
 
-void IUnionFind::iterate_unions_in_stdinput(string file_path) {
+void IUnionFind::iterate_unions_in_stdinput(string file_path)
+{
 	ifstream std_input_stream(file_path);
 	string sz_a_line;
 
@@ -58,4 +64,24 @@ void IUnionFind::iterate_unions_in_stdinput(string file_path) {
 	} else {
 		cout << "Couldn't open" << endl;
 	}
+}
+
+
+void IUnionFind::print_N_to_file()
+{
+	// instead of this general fxn, may want to print N and then print each union as/before it happens
+	ofstream uf_file_stream;
+	uf_file_stream.open(this->displaytreetxtpath);
+	uf_file_stream << this->N << "\n";
+	uf_file_stream.close();
+}
+
+
+void IUnionFind::union_and_print_wrapper(int p, int q)
+{
+	this->unionize(p, q);
+	ofstream uf_file_stream;
+	uf_file_stream.open(this->displaytreetxtpath);
+	uf_file_stream << "1:" << p << " 2:" << q << "\n";
+	uf_file_stream.close();
 }

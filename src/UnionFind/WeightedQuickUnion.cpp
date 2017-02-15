@@ -14,9 +14,10 @@ void WeightedQuickUnion::init(string stdinput_file_path) {
 }
 
 
-void WeightedQuickUnion::init(int N) {
+void WeightedQuickUnion::init(int N, string displaytreetxtpath) {
 	this->N = N;
 	this->tree_sizes = new int[this->N];
+	this->displaytreetxtpath = displaytreetxtpath;
 	fill_n(this->tree_sizes, this->N, 1);
 	this->initialize_id();
 }

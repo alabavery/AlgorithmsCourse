@@ -25,8 +25,8 @@ void FirstImplementation::init(string stdinput_file_path) {
 }
 
 
-void FirstImplementation::init(int N) {
-	this->default_init(N);
+void FirstImplementation::init(int N, string displaytreetxtpath) {
+	this->default_init(N, displaytreetxtpath);
 }
 
 

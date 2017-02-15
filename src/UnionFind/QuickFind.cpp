@@ -11,8 +11,8 @@ void QuickFind::init(string stdinput_file_path) {
 }
 
 
-void QuickFind::init(int N) {
-	this->default_init(N);
+void QuickFind::init(int N, string displaytreetxtpath) {
+	this->default_init(N, displaytreetxtpath);
 }
 
 

@@ -10,7 +10,7 @@ private:
 	int* tree_sizes; // array of N length, but only the nodes that are currently roots are up to date
 public:
 	void init(string stdinput_file_path);
-	void init(int N);
+	void init(int N, string displaytreetxtpath);
 	void unionize(int p, int q);
 };
 

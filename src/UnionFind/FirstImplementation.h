@@ -26,7 +26,7 @@ private:
 	virtual void initialize_id();
 public:
 	void init(string stdinput_file_path);
-	void init(int N);
+	void init(int N, string displaytreetxtpath);
 	void unionize(int p, int q);
 	vector<int*> component_ptrs;
 //	~FirstImplementation();

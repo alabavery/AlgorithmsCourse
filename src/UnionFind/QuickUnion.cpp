@@ -15,8 +15,8 @@ void QuickUnion::init(string stdinput_file_path) {
 }
 
 
-void QuickUnion::init(int N) {
-	this->default_init(N);
+void QuickUnion::init(int N, string displaytreetxtpath) {
+	this->default_init(N, displaytreetxtpath);
 }
 
 
