@@ -30,8 +30,9 @@ public:
 	virtual bool test_connection(int p, int q) = 0;
 	virtual void init(string stdinput_file_path) = 0;
 	virtual void init(int N, string displaytreetxtpath) = 0;
-	void print_N_to_file();
+	void print_to_file();
 	void union_and_print_wrapper(int p, int q);
+	string display_tree_str;
 };
 
 

@@ -67,12 +67,13 @@ void IUnionFind::iterate_unions_in_stdinput(string file_path)
 }
 
 
-void IUnionFind::print_N_to_file()
+void IUnionFind::print_to_file()
 {
 	// instead of this general fxn, may want to print N and then print each union as/before it happens
 	ofstream uf_file_stream;
 	uf_file_stream.open(this->displaytreetxtpath);
-	uf_file_stream << this->N << "\n";
+	uf_file_stream << this->N;
+	uf_file_stream << this->display_tree_str;
 	uf_file_stream.close();
 }
 
@@ -80,8 +81,5 @@ void IUnionFind::print_N_to_file()
 void IUnionFind::union_and_print_wrapper(int p, int q)
 {
 	this->unionize(p, q);
-	ofstream uf_file_stream;
-	uf_file_stream.open(this->displaytreetxtpath);
-	uf_file_stream << "1:" << p << " 2:" << q << "\n";
-	uf_file_stream.close();
+	this->display_tree_str += "\n" + to_string(p) +"&"+ to_string(q);
 }
