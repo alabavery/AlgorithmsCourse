@@ -5,7 +5,7 @@
  *      Author: alavery
  */
 
-#include "WeightedQuickUnion.h"
+#include "UnionFind/WeightedQuickUnion.h"
 
 #ifndef UNIONFIND_MINIMUMSPANNINGTREES_H_
 #define UNIONFIND_MINIMUMSPANNINGTREES_H_

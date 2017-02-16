@@ -14,6 +14,8 @@
 #include "UnionFind/QuickUnion.h"
 #include "UnionFind/WeightedQuickUnion.h"
 
+#include "MinimumSpanningTrees.h"
+
 #include <iostream>
 using namespace std;
 
@@ -24,9 +26,9 @@ int main() {
 	//QuickUnion uf = QuickUnion();
 	//QuickFind uf = QuickFind();
 	//FirstImplementation uf = FirstImplementation();
-	WeightedQuickUnion uf = WeightedQuickUnion();
+	//WeightedQuickUnion uf = WeightedQuickUnion();
 
-	uf.init("src/UnionFind/stdinput.txt");
-    cout << uf.get_root(2);
+	GenericMST mst = GenericMST(10, "src/displaytreetxt.txt");
+
 	return 0;
 }

@@ -14,9 +14,14 @@ GenericMST::GenericMST(int N, string displaytreetxtpath) {
 	this->uf = WeightedQuickUnion();
 	this->uf.init(this->N, displaytreetxtpath);
 
-	while (!this->check_if_done()) {
-		this->find_next_node();
+	int counter = 0;
+	int p = 1;
+	while (p > 0) {
+		this->uf.union_and_print_wrapper(p, this->prime_node);
+		p = this->find_next_node();
+		counter++;
 	}
+	this->uf.print_to_file();
 }
 
 
@@ -40,4 +45,5 @@ int GenericMST::find_next_node() {
 			return i; // first we wont worry about minimum weighting
 		}
 	}
+	return -1;
 }

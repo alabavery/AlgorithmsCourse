@@ -4,13 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/AlgorithmsCourse.cpp 
+../src/AlgorithmsCourse.cpp \
+../src/MinimumSpanningTrees.cpp 
 
 OBJS += \
-./src/AlgorithmsCourse.o 
+./src/AlgorithmsCourse.o \
+./src/MinimumSpanningTrees.o 
 
 CPP_DEPS += \
-./src/AlgorithmsCourse.d 
+./src/AlgorithmsCourse.d \
+./src/MinimumSpanningTrees.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
