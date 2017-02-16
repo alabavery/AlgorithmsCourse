@@ -8,12 +8,13 @@
 #include "MinimumSpanningTrees.h"
 
 
-GenericMST::GenericMST(int N, string displaytreetxtpath)
+GenericMST::GenericMST(int N, string displaytreetxtpath, int (*weighting_function)(int,int))
 {
 	this->N = N;
 	this->prime_node = 0;
 	this->uf = WeightedQuickUnion();
 	this->uf.init(this->N, displaytreetxtpath);
+	this->weighting_function = weighting_function;
 
 	int the_union[2] = {0, 0};
 	while (true) {
@@ -64,6 +65,6 @@ void GenericMST::find_next_union(int the_union[2])
 }
 
 
-int GenericMST::weighting_function(int p, int q) {
-	return p - q;
-}
+//int GenericMST::weighting_function(int p, int q) {
+//	return p - q;
+//}

@@ -17,9 +17,10 @@ private:
 	int prime_node;
 	void find_next_union(int the_union[2]);
 	WeightedQuickUnion uf;
-	int weighting_function(int p, int q);
+	//int weighting_function(int p, int q);
+	int (*weighting_function)(int,int);
 public:
-	GenericMST(int N, string displaytreetxtpath);
+	GenericMST(int N, string displaytreetxtpath, int (*weighting_function)(int,int));
 };
 
 
