@@ -17,7 +17,6 @@ private:
 	int prime_node;
 	int find_next_node();
 	WeightedQuickUnion uf;
-	bool check_if_done();
 public:
 	GenericMST(int N, string displaytreetxtpath);
 };
