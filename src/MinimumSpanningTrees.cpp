@@ -4,18 +4,24 @@
  *  Created on: Feb 14, 2017
  *      Author: alavery
  */
-
+#include <iostream>
 #include "MinimumSpanningTrees.h"
 
+using namespace std;
 
-GenericMST::GenericMST(int N, string displaytreetxtpath, int (*weighting_function)(int,int))
-{
+
+
+MST::MST(int N, string displaytreetxtpath, int (*weighting_function)(int,int)) {
 	this->N = N;
-	this->prime_node = 0;
-	this->uf = WeightedQuickUnion();
+	this->uf = QuickFind();
 	this->uf.init(this->N, displaytreetxtpath);
 	this->weighting_function = weighting_function;
+}
 
+
+
+void GenericMST::run_algorithm()
+{
 	int the_union[2] = {0, 0};
 	while (true) {
 		this->find_next_union(the_union);
@@ -39,11 +45,11 @@ void GenericMST::find_next_union(int the_union[2])
 
 	for (int node_outside = 1; node_outside < this->N; node_outside++)
 	{
-		if (this->uf.get_root(node_outside) != this->prime_node)
+		if (!this->uf.test_connection(node_outside, 0))
 		{
 			for (int node_inside = 0; node_inside < this->N; node_inside++)
 			{
-				if (this->uf.get_root(node_inside) == this->prime_node)
+				if (this->uf.test_connection(node_inside, 0))
 				{
 					int this_weight = this->weighting_function(node_outside, node_inside);
 
@@ -65,6 +71,31 @@ void GenericMST::find_next_union(int the_union[2])
 }
 
 
-//int GenericMST::weighting_function(int p, int q) {
-//	return p - q;
-//}
+void MST_Krugal::run_algorithm() {
+	int ** edge_array = this->make_edge_array();
+////	edge_array = this->order_edge_array(edge_array);
+	for (int i = 0; i < (N*N/2); i++) {
+		cout << edge_array[i][0] << " " << edge_array[i][1] << " " << edge_array[i][2] << endl;
+	}
+}
+
+
+int ** MST_Krugal::make_edge_array()
+{
+	int ** edge_array = new int*[N * N / 2]; // (N*N/2) gives number of edges needed for one edge between each node
+	int index = 0;
+
+	for (int i = 0; i < this->N; i++)
+	{
+		for (int j = i+1; j < this->N; j++)
+		{
+			int * this_edge = new int[3];
+			this_edge[0] = i, this_edge[1] = j;
+			this_edge[2] = this->weighting_function(i, j);
+			edge_array[index] = this_edge;
+			index++;
+		}
+	}
+	return edge_array;
+}
+
