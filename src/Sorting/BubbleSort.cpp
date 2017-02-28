@@ -20,21 +20,21 @@ void bubble_sort_2D(
 	 * (e.g. 2D arrays or vectors of arrays or arrays of vectors or
 	 * vectors of vectors), using any comparison function provided
 	 */
-	bool switch_made = false;
+	bool a_switch_made = false;
 	while (true)
 	{
-		switch_made = false;
+		a_switch_made = false;
 		for (int i = 0; i < twod_size - 1; i++)
 		{
-			if (twod[i][2] > twod[i+1][2])
+			if (is_greater_than(twod[i][2], twod[i+1][2]))
 			{
-				switch_made = true;
+				a_switch_made = true;
 				temp = twod[i];
 				twod[i] = twod[i+1];
 				twod[i+1] = temp;
 			}
 		}
-		if (!switch_made) {
+		if (!a_switch_made) {
 			break;
 		}
 	}
