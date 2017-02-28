@@ -8,17 +8,21 @@
 using namespace std;
 
 
-template <class subscriptable_1D, class subscriptable_2D>
+
+
+template <class lower_dimension, class higher_dimension>
 void bubble_sort_2D(
-				subscriptable_2D &twod,
+				higher_dimension &twod,
 				int twod_size,
-				subscriptable_1D temp,
-				bool(*is_greater_than)(subscriptable_1D,subscriptable_1D)
+				lower_dimension temp,
+				bool(*is_greater_than)(lower_dimension,lower_dimension)
 				)
 {
-	/* This function should be able to sort any 2d of subscriptables
-	 * (e.g. 2D arrays or vectors of arrays or arrays of vectors or
-	 * vectors of vectors), using any comparison function provided
+	/* This function can be used to sort any subscriptable (higher_dimension)
+	 * in which the contents (lower_dimension) are of one fewer dimensions
+	 * than the container (e.g., 1D array, 2D array, 2D vector..), iff
+	 * the user provides a pointer to a function that can be used to compare
+	 * two elements of the lower dimension.
 	 */
 	bool a_switch_made = false;
 	while (true)
@@ -26,7 +30,7 @@ void bubble_sort_2D(
 		a_switch_made = false;
 		for (int i = 0; i < twod_size - 1; i++)
 		{
-			if (is_greater_than(twod[i][2], twod[i+1][2]))
+			if (is_greater_than(twod[i], twod[i+1]))
 			{
 				a_switch_made = true;
 				temp = twod[i];
@@ -39,4 +43,3 @@ void bubble_sort_2D(
 		}
 	}
 }
-
