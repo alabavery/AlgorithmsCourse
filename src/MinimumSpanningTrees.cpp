@@ -5,6 +5,7 @@
  *      Author: alavery
  */
 #include <iostream>
+#include "Sorting/Sorting.cpp"
 #include "MinimumSpanningTrees.h"
 
 using namespace std;
@@ -71,18 +72,22 @@ void GenericMST::find_next_union(int the_union[2])
 }
 
 
-void MST_Krugal::run_algorithm() {
+void MST_Krugal::run_algorithm()
+{
 	int ** edge_array = this->make_edge_array();
-////	edge_array = this->order_edge_array(edge_array);
-	for (int i = 0; i < (N*N/2); i++) {
-		cout << edge_array[i][0] << " " << edge_array[i][1] << " " << edge_array[i][2] << endl;
-	}
+	selection_sort(edge_array, N*(N-1)/2, edge_array[0], this->compare_edges);
+}
+
+
+bool MST_Krugal::compare_edges(int * edge1, int * edge2)
+{
+	return edge1[2] > edge2[2];
 }
 
 
 int ** MST_Krugal::make_edge_array()
 {
-	int ** edge_array = new int*[N * N / 2]; // (N*N/2) gives number of edges needed for one edge between each node
+	int ** edge_array = new int*[N*(N-1)/2]; // (N*(N-1)/2) gives number of edges needed for one edge between each node
 	int index = 0;
 
 	for (int i = 0; i < this->N; i++)
@@ -98,4 +103,3 @@ int ** MST_Krugal::make_edge_array()
 	}
 	return edge_array;
 }
-
